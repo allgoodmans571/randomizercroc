@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from './images/logo.png'
+import './index.css'
+import crateClosed from './images/crateClosed.svg'
+const logoStyles = {
+  img: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '30%'
+  }
+};
+const crateStyles = {
+  img: {
+    position: 'absolute',
+    top: '30%'
+  }
+};
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='wrapper'>
+    <img src={logo} style={logoStyles.img} alt='logo'/>
+    <img src={crateClosed} style={crateStyles.img} alt='crate'/>
+
     </div>
   );
 }
