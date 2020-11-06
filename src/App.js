@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from './images/logo.png'
 import './index.css'
 import crateClosed from './images/crateClosed.svg'
-import axios from 'axios'
+// import axios from 'axios'
 
 const logoStyles = {
   img: {
@@ -45,16 +45,14 @@ function useInput(defaultValue) {
 
 
 function App() {
+  const [count, set_count] = useState(0);
   const inputProps = useInput('');
-
-  let count = 0;
-  let content;
-    
+      
   
 function handleClick(e) {    
   e.preventDefault(); 
 
-  count = 1;
+  set_count(1);
   // if (code !== undefined) {
   //   axios.post('http://213./check_code', {
   //     code: code
@@ -70,10 +68,10 @@ function handleClick(e) {
   // }
 }
 
+var Content_ = <p></p>;
 
-  if (count == 0) {
-    content = <div>
-    <img src={logo} style={logoStyles.img} alt='logo'/>
+  if (count === 0) {
+    Content_ = <div>
       <div className='content' >
           <img src={crateClosed} className='box' alt='crate'/>
           <input {...inputProps} style={input_styles.input} placeholder='Введите код' />
@@ -83,12 +81,13 @@ function handleClick(e) {
       </div>
     </div> 
   } else {
-    content = <h1>Hello</h1>
+    Content_ = <h1>Hello</h1>
   }
 
   return (
     <div className='wrapper'>
-      <content/>
+      <img src={logo} style={logoStyles.img} alt='logo'/>
+      {Content_}
     </div>
   );
 }
