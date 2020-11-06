@@ -3,6 +3,7 @@ import logo from './images/logo.png'
 import './index.css'
 import crateClosed from './images/crateClosed.svg'
 import crateOpened from './images/crateOpened.svg'
+import SelfDeliverModal from './Modal/SelfDeliverModal'
 // import axios from 'axios'
 
 
@@ -99,7 +100,7 @@ let Content_ = <p/>;
             <p className='itemName'> Вы нашли {ItemName}</p>
             <img src={crateOpened} className='box' alt='crate'/>
             <div className='div_for_btn deliveryBtn' >
-              <button className='btn' onClick={getSelfDeliver} > Доставка </button>
+              <SelfDeliverModal />
               <button className='btn' onClick={getDelivery}> Самовывоз </button>
             </div>
 
