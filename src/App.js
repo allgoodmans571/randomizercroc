@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import logo from './images/logo.png'
 import './index.css'
 import crateClosed from './images/crateClosed.svg'
+import crateOpened from './images/crateOpened.svg'
 // import axios from 'axios'
+
+
 
 const logoStyles = {
   img: {
@@ -47,8 +50,9 @@ function useInput(defaultValue) {
 function App() {
   const [count, set_count] = useState(0);
   const inputProps = useInput('');
-      
-  
+
+
+  let ItemName = '{ItemName}';
 function handleClick(e) {    
   e.preventDefault(); 
 
@@ -68,7 +72,15 @@ function handleClick(e) {
   // }
 }
 
-var Content_ = <p></p>;
+let Content_ = <p/>;
+
+  function getSelfDeliver() {
+    return null;
+  }
+
+  function getDelivery() {
+    return null;
+  }
 
   if (count === 0) {
     Content_ = <div>
@@ -81,7 +93,19 @@ var Content_ = <p></p>;
       </div>
     </div> 
   } else {
-    Content_ = <h1>Hello</h1>
+    Content_ =
+        <div>
+          <div className='content' >
+            <p className='itemName'> Вы нашли {ItemName}</p>
+            <img src={crateOpened} className='box' alt='crate'/>
+            <div className='div_for_btn deliveryBtn' >
+              <button className='btn' onClick={getSelfDeliver} > Доставка </button>
+              <button className='btn' onClick={getDelivery}> Самовывоз </button>
+            </div>
+
+          </div>
+        </div>
+
   }
 
   return (
