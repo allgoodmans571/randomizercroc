@@ -42,43 +42,53 @@ function useInput(defaultValue) {
 }
 
 
-function handleClick(e) {    
-  e.preventDefault(); 
-  if (code !== undefined) {
-    axios.post('http://213./check_code', {
-      code: code
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  } else {
-    alert('Поле не может быть пустым')
-  }
-}
 
 
 function App() {
   const inputProps = useInput('');
+
+  let count = 0;
+  let content;
     
   
+function handleClick(e) {    
+  e.preventDefault(); 
 
+  count = 1;
+  // if (code !== undefined) {
+  //   axios.post('http://213./check_code', {
+  //     code: code
+  //   })
+  //   .then(function (response) {
+  //     console.log(response);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+  // } else {
+  //   alert('Поле не может быть пустым')
+  // }
+}
+
+
+  if (count == 0) {
+    content = <div>
+    <img src={logo} style={logoStyles.img} alt='logo'/>
+      <div className='content' >
+          <img src={crateClosed} className='box' alt='crate'/>
+          <input {...inputProps} style={input_styles.input} placeholder='Введите код' />
+          <div className='div_for_btn' >
+          <button className='btn'onClick={handleClick} > OK! </button>
+          </div> 
+      </div>
+    </div> 
+  } else {
+    content = <h1>Hello</h1>
+  }
 
   return (
     <div className='wrapper'>
-    <img src={logo} style={logoStyles.img} alt='logo'/>
-    <div className='content' >
-        <img src={crateClosed} className='box' alt='crate'/>
-        <input {...inputProps} style={input_styles.input} placeholder='Введите код' />
-        <div className='div_for_btn' >
-        <button className='btn'onClick={handleClick} > OK! </button>
-        </div> 
-        
-    </div>
-    
-
+      <content/>
     </div>
   );
 }
