@@ -3,9 +3,20 @@ import logo from './images/logo.png'
 import './index.css'
 import crateClosed from './images/crateClosed.svg'
 import crateOpened from './images/crateOpened.svg'
-// import axios from 'axios'
+import Modal from 'react-modal';
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom:  'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
 
+// Modal.setAppElement('#yourAppElement')
 
 const logoStyles = {
   img: {
@@ -45,34 +56,55 @@ function useInput(defaultValue) {
 }
 
 
+      
+
 
 
 function App() {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  
   const [count, set_count] = useState(0);
+
   const inputProps = useInput('');
 
 
+
+
   let ItemName = '{ItemName}';
-function handleClick(e) {    
-  e.preventDefault(); 
+  function handleClick(e) {    
+    e.preventDefault(); 
 
-  set_count(1);
-  // if (code !== undefined) {
-  //   axios.post('http://213./check_code', {
-  //     code: code
-  //   })
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // } else {
-  //   alert('Поле не может быть пустым')
-  // }
-}
+    set_count(1);
+    // if (code !== undefined) {
+    //   axios.post('http://213./check_code', {
+    //     code: code
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    // } else {
+    //   alert('Поле не может быть пустым')
+    // }
+  }
 
-let Content_ = <p/>;
+  let Content_ = <p/>;
+
+  var subtitle;
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   function getSelfDeliver() {
     return null;
@@ -82,13 +114,15 @@ let Content_ = <p/>;
     return null;
   }
 
+
+
   if (count === 0) {
     Content_ = <div>
       <div className='content' >
           <img src={crateClosed} className='box' alt='crate'/>
           <input {...inputProps} style={input_styles.input} placeholder='Введите код' />
           <div className='div_for_btn' >
-          <button className='btn'onClick={handleClick} > OK! </button>
+          <button className='btn' onClick={handleClick} > OK! </button>
           </div> 
       </div>
     </div> 
@@ -99,18 +133,35 @@ let Content_ = <p/>;
             <p className='itemName'> Вы нашли {ItemName}</p>
             <img src={crateOpened} className='box' alt='crate'/>
             <div className='div_for_btn deliveryBtn' >
-              <button className='btn' onClick={getSelfDeliver} > Доставка </button>
-              <button className='btn' onClick={getDelivery}> Самовывоз </button>
+          <button className='btn' onClick={openModal} > Доставка </button>
+          <button className='btn' onClick={openModal}> Самовывоз </button>
             </div>
-
           </div>
         </div>
-
   }
 
   return (
     <div className='wrapper'>
       <img src={logo} style={logoStyles.img} alt='logo'/>
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+
+        <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
+      </Modal>
       {Content_}
     </div>
   );
