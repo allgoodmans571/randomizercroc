@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react'
 import './Modal.css'
 
-export default class SelfDeliverModal extends React.Component{
+export default class DeliverModal extends React.Component{
 
     state = {
         isOpen: false
@@ -11,12 +11,12 @@ export default class SelfDeliverModal extends React.Component{
     render() {
         return (
             <Fragment>
-                <button className='btn' onClick={() => this.setState({isOpen: true})} > Доставка </button>
+                <button className='btn' onClick={() => this.setState({isOpen: true})} > Самовывоз </button>
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
                         <h1>Modal title</h1>
                         <p>I am awesome modal!</p>
-                        <button className='accept' onClick={() => this.setState({isOpen: false})}>Принять</button>
+                        <button className='btn' onClick={() => this.setState({isOpen: false})}>Close modal</button>
                     </div>
                 </div>}
             </Fragment>

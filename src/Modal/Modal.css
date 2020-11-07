@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     padding-top: 5rem;
+    
 
 }
 
@@ -18,4 +19,11 @@
     background: #fff;
     height: 800px;
 
+}
+
+.accept {
+    background: #00A460 0 0 no-repeat padding-box;
+    box-shadow: 0 3px 6px #0000006B;
+    border-radius: 11px;
+    opacity: 1;
 }
