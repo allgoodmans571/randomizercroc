@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment} from 'react'
 import './Modal.css'
 
 export default class DeliverModal extends React.Component{
@@ -11,7 +11,7 @@ export default class DeliverModal extends React.Component{
     render() {
         return (
             <Fragment>
-                <button className='btn' onClick={() => this.setState({isOpen: true})} > Самовывоз </button>
+                <button className='modBtn' onClick={() => this.setState({isOpen: true})} > Самовывоз </button>
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
                         <h1>Modal title</h1>
