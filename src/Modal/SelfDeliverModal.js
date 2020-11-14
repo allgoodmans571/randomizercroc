@@ -15,6 +15,7 @@ export default class SelfDeliverModal extends React.Component{
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
                         <form className='SelfDeliverForm'>
+                            <h1>TextTextText</h1> <br />
                             <input type='text' className='modInput' /><br />
                             <h1>TextTextText</h1> <br />
                             <input type='text' className='modInput' /><br />
@@ -23,7 +24,7 @@ export default class SelfDeliverModal extends React.Component{
                             <h1>TextTextText</h1> <br />
                             <input type='text' className='modInput' /><br />
                         </form>
-                        <button className='btn' onClick={() => this.setState({isOpen: false})}>Принять</button>
+                        <button className='modBtn' onClick={() => this.setState({isOpen: false})}>Принять</button>
                     </div>
                 </div>}
             </Fragment>

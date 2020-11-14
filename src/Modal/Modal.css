@@ -19,18 +19,18 @@
     border-radius: 15px;
     opacity: 1;
     margin-top: 5px;
+    margin-bottom: 5px;
     height: 30px;
     width: 80%;
     text-align: left;
 }
 
 .modal-body {
-    padding-top: 2rem;
     width: 600px;
     border-right: 5px;
     background: #3E3E3E 0 0 no-repeat padding-box;
     height: 800px;
-
+    padding: 2rem 1rem 1rem;
 }
 
 .accept {
@@ -49,4 +49,10 @@
     width: 80px;
     cursor: pointer;
     margin-top: 10px;
+
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
 }
