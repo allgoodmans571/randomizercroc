@@ -30,6 +30,7 @@
     background: #fff 0 0 no-repeat padding-box;
     height: 600px;
     justify-content: center;
+    text-align: center;
 }
 
 .modInput {
@@ -42,9 +43,11 @@
     height: 1.5rem;
     width: 80%;
     text-align: left;
+    padding-left: 1rem;
     
 }
 .text {
+    text-align: left;
     font-size: 20px;
     margin-left: 2rem;
     margin-top: 1rem;
@@ -65,10 +68,18 @@
 
 .modBtn {
     border-radius: 30px;
-    background-color:#00A460 ;
-    border: 0;
-    height: 30px;
-    width: 80px;
+    background-color:rgba(0, 0, 0, 0); ;
+    border: 1px solid #00A460;
+    color: #fff;
+    height: 40px;
+    width: 100px;
     cursor: pointer;
     margin-top: 10px;
+}
+
+.modHead {
+    color: #00A460;
+    margin-top: 0;
+    margin-bottom: 4rem;
+
 }
