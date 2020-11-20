@@ -15,15 +15,20 @@ export default class SelfDeliverModal extends React.Component{
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
                         <form className='SelfDeliverForm'>
+                          <h1 className="text">Кому доставить </h1> <br />
                             <input type='text' className='modInput' /><br />
-                            <h1>TextTextText</h1> <br />
+                            <h1 className="text">Что доставить </h1> <br />
                             <input type='text' className='modInput' /><br />
-                            <h1>TextTextText</h1> <br />
+                            <h1 className="text">Дата доставки</h1> <br />
                             <input type='text' className='modInput' /><br />
-                            <h1>TextTextText</h1> <br />
+                            <h1 className="text">Куда доставить</h1> <br />
+                            <input type='text' className='modInput' /><br />
+                            <h1 className="text">Куда звонить</h1> <br />
                             <input type='text' className='modInput' /><br />
                         </form>
-                        <button className='btn' onClick={() => this.setState({isOpen: false})}>Принять</button>
+                        <div className='acceptBtn'>
+                        <button className='accept' onClick={() => this.setState({isOpen: false})}>Принять</button>
+                        </div>
                     </div>
                 </div>}
             </Fragment>
