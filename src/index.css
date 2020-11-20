@@ -20,6 +20,7 @@ code {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  flex-wrap: wrap;
 }
 
 .content {
@@ -75,7 +76,6 @@ code {
 }
 
 .itemName {
-
   font-size: 20px;
   color: #fff;
   width: 20rem;
@@ -87,6 +87,14 @@ code {
 }
 
 .logo {
-  align-self: flex-end;
-  
+  /* margin-top: 80px; */
 }
+.div_for_logo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 3rem;
+}
+

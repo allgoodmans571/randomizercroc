@@ -77,7 +77,6 @@ let Content_ = <p/>;
           <input {...inputProps} style={input_styles.input} placeholder='Введите код' />
           <div className='div_for_btn' >
           <button className='btn'onClick={handleClick} > Получить приз </button>
-          
           </div> 
       </div>
     </div> 
@@ -101,7 +100,10 @@ let Content_ = <p/>;
     <div className='wrapper'>
       
       {Content_}
-      <img src={logo} className='logo' alt='logo'/>
+
+      <div className='div_for_logo'>
+            <img src={logo} className='logo' alt='logo'/>
+        </div>
     </div>
   );
 }
