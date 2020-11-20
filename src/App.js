@@ -6,7 +6,7 @@ import crateOpened from './images/crateOpened.svg'
 import SelfDeliverModal from './Modal/SelfDeliverModal'
 import DeliverModal from "./Modal/DeliverModal"
 import BF from './images/blackfriday.svg'
-import krok from './images/KROK.svg'
+// import krok from './images/KROK.svg'
 // import axios from 'axios'
 
 
