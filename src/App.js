@@ -1,22 +1,15 @@
 import React, { useState } from "react";
-import logo from './images/logo.png'
+import logo from './images/KROK.svg'
 import './index.css'
 import crateClosed from './images/crateClosed.svg'
 import crateOpened from './images/crateOpened.svg'
 import SelfDeliverModal from './Modal/SelfDeliverModal'
-import DeliverModal from "./Modal/DeliverModal";
+import DeliverModal from "./Modal/DeliverModal"
+import BF from './images/blackfriday.svg'
+import krok from './images/KROK.svg'
 // import axios from 'axios'
 
 
-
-const logoStyles = {
-  img: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    width: '30%'
-  }
-};
 
 let input_styles = {
   input: {
@@ -76,21 +69,15 @@ function handleClick(e) {
 
 let Content_ = <p/>;
 
-  function getSelfDeliver() {
-    return null;
-  }
-
-  function getDelivery() {
-    return null;
-  }
-
   if (count === 0) {
     Content_ = <div>
       <div className='content' >
+          <img src={BF} className="BF" />
           <img src={crateClosed} className='box' alt='crate'/>
           <input {...inputProps} style={input_styles.input} placeholder='Введите код' />
           <div className='div_for_btn' >
-          <button className='btn'onClick={handleClick} > OK! </button>
+          <button className='btn'onClick={handleClick} > Получить приз </button>
+          
           </div> 
       </div>
     </div> 
@@ -98,7 +85,7 @@ let Content_ = <p/>;
     Content_ =
         <div>
           <div className='content' >
-            <p className='itemName'> Вы нашли {ItemName}</p>
+            <p className='itemName'> Ты выиграл {ItemName}!</p>
             <img src={crateOpened} className='box' alt='crate'/>
             <div className='div_for_btn deliveryBtn' >
               <SelfDeliverModal/>
@@ -112,8 +99,9 @@ let Content_ = <p/>;
 
   return (
     <div className='wrapper'>
-      <img src={logo} style={logoStyles.img} alt='logo'/>
+      
       {Content_}
+      <img src={logo} className='logo' alt='logo'/>
     </div>
   );
 }
