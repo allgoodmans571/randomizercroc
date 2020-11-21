@@ -12,7 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+*{
+  font-family: Croc;
+  font-style: normal;
+}
 
 .wrapper {
   display: flex;
@@ -20,6 +23,7 @@ code {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  flex-wrap: wrap;
 }
 
 .content {
@@ -29,7 +33,7 @@ code {
   width: 237px;
 }
 .box {
-  width: 100%;
+  width: 200%;
 }
 .input {
   background: #313131 0 0 no-repeat padding-box;
@@ -61,10 +65,12 @@ code {
 }
 .btn {
   border-radius: 30px;
-  background-color:#00A460 ;
-  border: 0;
+  border-color: #FF645A;
+  background-color:rgba(0, 0, 0, 0);
+  color: #fff;
+  border: 2;
   height: 30px;
-  width: 80px;
+  width: 8rem;
   cursor: pointer;
 }
 
@@ -73,7 +79,22 @@ code {
 }
 
 .itemName {
-
-  font-size: 22px;
-  color: #00A460;
+  font-size: 20px;
+  color: #fff;
+  width: 20rem;
 }
+
+.BF {
+  width: 150%;
+  margin-bottom: 10%;
+}
+
+.div_for_logo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 3rem;
+}
+
