@@ -1,10 +1,10 @@
 import React, {Fragment} from 'react'
 import './Modal.css'
 
-export default class okModal extends React.Component {
+export default class DelOk extends React.Component {
 
     state = {
-        isOpen: true,
+        isOpen: false,
     };
 
 
@@ -13,7 +13,7 @@ export default class okModal extends React.Component {
     render() {
         return (
             <Fragment>
-                <button className='modBtn' onClick={() => this.setState({isOpen: true})} > Самовывоз </button>
+                <button className='accept' onClick={() => this.setState({isOpen: true})} > OK </button>
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
                         <h1 className='modHead' >Покупка в Боброшопе</h1>

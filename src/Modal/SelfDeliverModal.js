@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import './Modal.css'
+import DelOk from "./DelOk";
 
 export default class SelfDeliverModal extends React.Component{
 
@@ -24,7 +25,8 @@ export default class SelfDeliverModal extends React.Component{
                             <input type='text' className='modInput' placeholder='12 ноября 2020, 15:15' /><br />
                         </form>
                         <div className='acceptBtn'>
-                        <button className='accept' onClick={() => this.setState({isOpen: false})}>Принять</button>
+                        {/*<button className='accept' onClick={() => this.setState({isOpen: false})}>Принять</button>*/}
+                        <DelOk/>
                         </div>
                     </div>
                 </div>}

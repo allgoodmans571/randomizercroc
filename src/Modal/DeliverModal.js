@@ -1,6 +1,6 @@
-
 import React, {Fragment} from 'react'
 import './Modal.css'
+import DelOk from "./DelOk";
 
 export default class DeliverModal extends React.Component{
 
@@ -13,7 +13,7 @@ export default class DeliverModal extends React.Component{
         return (
             <Fragment>
                 <button className='modBtn' onClick={() => this.setState({isOpen: true})} > Доставка </button>
-                {this.state.isOpen && <div className='modal'>
+                {this.state.isOpen && <div className='modal}>
                     <div className='modal-body'>
                         <h1 className='modHead' >Доставка</h1>
                         <form className='DeliverForm'>
@@ -30,6 +30,7 @@ export default class DeliverModal extends React.Component{
                         </form>
                         <div className='acceptBtn'>
                         <button className='accept' onClick={() => this.setState({isOpen: false})}>Принять</button>
+                            <DelOk/>
                         </div>
                     </div>
                 </div>}
