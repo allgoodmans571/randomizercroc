@@ -3,15 +3,10 @@ import './Modal.css'
 import DelOk from "./DelOk";
 
 export default class DeliverModal extends React.Component{
-
+    
     state = {
         isOpen: false
     };
-
-
-    stateFalse() {
-        this.setState({ isOpen: false})
-    }
 
 
     render() {
@@ -35,12 +30,11 @@ export default class DeliverModal extends React.Component{
                         </form>
                         <div className='acceptBtn'>
                         <button className='accept' onClick={() => this.setState({isOpen: false})}>Принять</button>
-                            <DelOk/>
+                            <DelOk closedWindow={()=>this.setState({ isOpen: false})} />
                         </div>
                     </div>
                 </div>}
             </Fragment>
         )
     }
-
 }

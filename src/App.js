@@ -10,6 +10,10 @@ import BF from './images/blackfriday.svg'
 // import axios from 'axios'
 
 
+const eventEmitter = require('events');
+window.ee = new eventEmitter();
+
+
 
 let input_styles = {
   input: {
