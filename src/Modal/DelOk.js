@@ -1,16 +1,23 @@
 import React, {Fragment} from 'react'
 import './Modal.css'
 
+
+
+
 export default class DelOk extends React.Component {
+
+
+    
 
     state = {
         isOpen: false,
     };
-
-
-
+    
+    
+    
 
     render() {
+        
         return (
             <Fragment>
                 <button className='accept' onClick={() => this.setState({isOpen: true})} > OK </button>

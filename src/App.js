@@ -6,7 +6,6 @@ import crateOpened from './images/crateOpened.svg'
 import SelfDeliverModal from './Modal/SelfDeliverModal'
 import DeliverModal from "./Modal/DeliverModal"
 import BF from './images/blackfriday.svg'
-import okModal from "./Modal/DelOk";
 // import krok from './images/KROK.svg'
 // import axios from 'axios'
 
@@ -73,7 +72,6 @@ let Content_ = <p/>;
   if (count === 0) {
     Content_ = <div>
       <div className='content' >
-      <okModal/>
           <img src={BF} className="BF" />
           <img src={crateClosed} className='box' alt='crate'/>
           <input {...inputProps} style={input_styles.input} placeholder='Введите код' />
