@@ -30,6 +30,7 @@
     height: 700px;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .modInput {
@@ -213,4 +214,9 @@
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
   }
-  
+  .calendar{
+    position: absolute;
+    left: 70px;
+    margin-top: 40px
+    /* display: none; */
+  }

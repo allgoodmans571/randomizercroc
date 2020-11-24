@@ -11,10 +11,26 @@ export default class DeliverModal extends React.Component{
     
     state = {
         date: new Date(),
-        isOpen: false
+        isOpen: false,
+        isCalendar: false,
+        valueDate: ''
     };
 
-    onChange = date => this.setState({ date })
+    // onChange = date => 
+
+    onChange = (date) => {
+        this.setState({ date })
+        this.setState({ date })
+        console.log(date);
+        console.log(1);
+        this.setState({ isCalendar: false})
+        this.setState({ valueDate: date})
+    }
+
+    // focusTextInput() {
+    //     console.log(1);
+    //     this.setState({isCalendar: true})
+    // }
 
     render() {
         
@@ -31,11 +47,13 @@ export default class DeliverModal extends React.Component{
                             <input type='text' className='modInput' placeholder='Ручка с лого КРОК' /><br />
                             <h1 className="text">Дата доставки</h1> <br />
                             <div>
-                            {/* <Calendar 
+                                { this.state.isCalendar && <Calendar 
+                            className='calendar'
                             onChange={this.onChange}
                             value={this.state.date}
-                            /> */}
-                            <input type='text' className='modInput' placeholder={'12 ноября 2020, 15:15'} /><br />
+                            />}
+                            
+                            <input type='text' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput' placeholder={'12 ноября 2020, 15:15'} /><br />
                             </div>
                             <h1 className="text">Куда доставить</h1> <br />
                             <input type='text' className='modInput' placeholder='Адрес' /><br />
