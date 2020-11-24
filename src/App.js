@@ -49,7 +49,7 @@ function useInput(defaultValue) {
 function App() {
   const [count, set_count] = useState(0);
   const inputProps = useInput('');
-
+  console.log(window.location.search);
 
   let ItemName = '{ItemName}';
 function handleClick(e) {    

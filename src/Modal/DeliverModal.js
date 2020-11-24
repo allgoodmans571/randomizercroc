@@ -73,7 +73,7 @@ export default class DeliverModal extends React.Component{
                             <input type='text' className='modInput' placeholder='+7'/><br />
                         </form>
                         <div className='acceptBtn'>
-                            <DelOk closedWindow={()=>this.setState({ isOpen: false})} />
+                            <DelOk date={this.state.valueDate} closedWindow={()=>this.setState({ isOpen: false})} />
                         </div>
                     </div>
                 </div>}
