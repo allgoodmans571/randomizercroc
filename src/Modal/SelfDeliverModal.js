@@ -12,14 +12,20 @@ export default class SelfDeliverModal extends React.Component{
         isCalendar: false,
         valueDate: '',
         days: {
-            Sun: 'Воскресение',
-            Mon: 'Понедельник', 
-            Tue: 'Вторник', 
-            Wed: 'Среда', 
-            Thu: 'Четверг', 
-            Fri: 'Пятница', 
-            Sat: 'Субота'
-        }
+            Jan: '01',
+            Feb: '02',
+            Mar: '03', 
+            Apr: '04', 
+            May: '05', 
+            Jun: '06', 
+            Jul: '07', 
+            Aug: '08',
+            Sep: '09',
+            Oct: '10',
+            Nov: '11',
+            Dec: '12',
+        },
+        
     };
 
     // onChange = date => 
@@ -30,9 +36,9 @@ export default class SelfDeliverModal extends React.Component{
         this.setState({ isCalendar: false})
         this.setState({ valueDate: 
             date.toString().split(' ')[3] + 
-            ' | ' + 
+            '.' + 
             date.toString().split(' ')[2]+ 
-            ' | ' +
+            '.' +
             this.state.days[date.toString().split(' ')[0]]})
     }
 
@@ -47,7 +53,7 @@ export default class SelfDeliverModal extends React.Component{
                           <h1 className="text">Кто будет забирать </h1> <br />
                             <input type='text' className='modInput' placeholder='ФИО' /><br />
                             <h1 className="text">Что будет забирать </h1> <br />
-                            <input type='text' className='modInput' placeholder='{ItemName}' /><br />
+                            <input type='text' className='modInput' value={this.props.name} /><br />
                             <h1 className="text">Дата самовывоза</h1> <br />
                             <div>
                                 { this.state.isCalendar && <Calendar 

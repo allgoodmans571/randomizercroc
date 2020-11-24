@@ -79,6 +79,7 @@ code {
 }
 
 .itemName {
+  text-align: center;
   font-size: 20px;
   color: #fff;
   width: 20rem;

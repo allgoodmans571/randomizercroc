@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, Component } from "react";
 import logo from './images/KROK.svg'
 import './index.css'
 import crateClosed from './images/crateClosed.svg'
@@ -6,8 +6,7 @@ import crateOpened from './images/crateOpened.svg'
 import SelfDeliverModal from './Modal/SelfDeliverModal'
 import DeliverModal from "./Modal/DeliverModal"
 import BF from './images/blackfriday.svg'
-// import krok from './images/KROK.svg'
-// import axios from 'axios'
+import axios from 'axios'
 
 
 const eventEmitter = require('events');
@@ -48,28 +47,60 @@ function useInput(defaultValue) {
 
 function App() {
   const [count, set_count] = useState(0);
-  const inputProps = useInput('');
-  console.log(window.location.search);
+  const inputProps = useInput();
 
-  let ItemName = '{ItemName}';
-function handleClick(e) {    
-  e.preventDefault(); 
+  const[name, setName] = useState()
+  const[group, setGroup] = useState()
 
-  set_count(1);
-  // if (code !== undefined) {
-  //   axios.post('http://213./check_code', {
-  //     code: code
-  //   })
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // } else {
-  //   alert('Поле не может быть пустым')
-  // }
+
+  code = window.location.search.split('=') [1]
+  console.log(code);
+
+function handleClick(e){
+  e.preventDefault()
+  set_count(1)
 }
+
+
+
+
+
+
+useEffect(() => {
+
+  if (code !== undefined) {
+    axios.get(`http://194.242.121.124:4000/get_code?param=${code}`)
+    .then(function (response) {
+      console.log(response);
+      setName((response.data.name).replace(/^\s*/,'').replace(/\s*$/,''))
+      if (response.data.int == 1) {
+        setGroup('Black Box "Мерч"')
+        } else if (response.data.int == 2) {
+        setGroup('Black Box "Wellbeing"')
+        } else if (response.data.int == 3){
+          setGroup('Black Box "Рабочее место"')
+        } else {
+          setGroup('error')
+          alert('Ошибка кода')
+        }
+        console.log(group);
+
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  } else {
+    alert('Поле не может быть пустым')
+  }
+}, [null]); //null не дает useEffect обновить отрисовку
+
+
+
+
+
+
+
 
 let Content_ = <p/>;
 
@@ -78,9 +109,9 @@ let Content_ = <p/>;
       <div className='content' >
           <img src={BF} className="BF" />
           <img src={crateClosed} className='box' alt='crate'/>
-          <input {...inputProps} style={input_styles.input} placeholder='Введите код' />
+          {/* <input {...inputProps} style={input_styles.input} placeholder='Введите код' /> */}
           <div className='div_for_btn' >
-          <button className='btn'onClick={handleClick} > Получить приз </button>
+          <button className='btn' onClick={handleClick} > Получить приз </button>
           </div> 
       </div>
     </div> 
@@ -88,11 +119,14 @@ let Content_ = <p/>;
     Content_ =
         <div>
           <div className='content' >
-            <p className='itemName'> Ты выиграл {ItemName}!</p>
+            <div style={{textAlign: 'center'}}>
+              <h1 style={{color: '#00A460', fontSize: '30px'}}>{group}</h1>
+            </div>
+            <p className='itemName'> Ты выиграл {name}!</p>
             <img src={crateOpened} className='box' alt='crate'/>
             <div className='div_for_btn deliveryBtn' >
-              <SelfDeliverModal/>
-              <DeliverModal/>
+              <SelfDeliverModal  name={name} group={group} />
+              <DeliverModal  name={name} group={group} />
             </div>
 
           </div>

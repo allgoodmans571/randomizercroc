@@ -56,7 +56,7 @@ export default class DeliverModal extends React.Component{
                           <h1 className="text">Кому доставить </h1> <br />
                             <input type='text' className='modInput' placeholder='ФИО' /><br />
                             <h1 className="text">Что доставить </h1> <br />
-                            <input type='text' className='modInput' placeholder='Ручка с лого КРОК' /><br />
+                            <input type='text' className='modInput' value={this.props.name} /><br />
                             <h1 className="text">Дата доставки</h1> <br />
                             <div>
                                 { this.state.isCalendar && <Calendar 
