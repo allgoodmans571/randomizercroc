@@ -13,18 +13,30 @@ export default class DeliverModal extends React.Component{
         date: new Date(),
         isOpen: false,
         isCalendar: false,
-        valueDate: ''
+        valueDate: '',
+        days: {
+            Sun: 'Воскресение',
+            Mon: 'Понедельник', 
+            Tue: 'Вторник', 
+            Wed: 'Среда', 
+            Thu: 'Четверг', 
+            Fri: 'Пятница', 
+            Sat: 'Субота'
+        }
     };
 
     // onChange = date => 
 
+
     onChange = (date) => {
         this.setState({ date })
-        this.setState({ date })
-        console.log(date);
-        console.log(1);
         this.setState({ isCalendar: false})
-        this.setState({ valueDate: date})
+        this.setState({ valueDate: 
+            date.toString().split(' ')[3] + 
+            ' | ' + 
+            date.toString().split(' ')[2]+ 
+            ' | ' +
+            this.state.days[date.toString().split(' ')[0]]})
     }
 
     // focusTextInput() {
