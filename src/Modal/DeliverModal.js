@@ -1,15 +1,23 @@
 import React, {Fragment} from 'react'
 import './Modal.css'
 import DelOk from "./DelOk";
+import Calendar from 'react-calendar';
+
+
+
 
 export default class DeliverModal extends React.Component{
+        
     
     state = {
+        date: new Date(),
         isOpen: false
     };
 
+    onChange = date => this.setState({ date })
 
     render() {
+        
         return (
             <Fragment>
                 <button className='modBtn' onClick={() => this.setState({isOpen: true})} > Доставка </button>
@@ -22,14 +30,19 @@ export default class DeliverModal extends React.Component{
                             <h1 className="text">Что доставить </h1> <br />
                             <input type='text' className='modInput' placeholder='Ручка с лого КРОК' /><br />
                             <h1 className="text">Дата доставки</h1> <br />
-                            <input type='text' className='modInput' placeholder='12 ноября 2020, 15:15' /><br />
+                            <div>
+                            {/* <Calendar 
+                            onChange={this.onChange}
+                            value={this.state.date}
+                            /> */}
+                            <input type='text' className='modInput' placeholder={'12 ноября 2020, 15:15'} /><br />
+                            </div>
                             <h1 className="text">Куда доставить</h1> <br />
                             <input type='text' className='modInput' placeholder='Адрес' /><br />
                             <h1 className="text">Куда звонить</h1> <br />
                             <input type='text' className='modInput' placeholder='+7'/><br />
                         </form>
                         <div className='acceptBtn'>
-                        <button className='accept' onClick={() => this.setState({isOpen: false})}>Принять</button>
                             <DelOk closedWindow={()=>this.setState({ isOpen: false})} />
                         </div>
                     </div>
