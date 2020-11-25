@@ -7,7 +7,7 @@ import './Modal.css'
 export default class DelOk extends React.Component {
 
 
-    
+
 
     state = {
         isOpen: false,
