@@ -36,7 +36,8 @@ export default class DeliverModal extends React.Component{
                 document.querySelector('#item').value,
                 document.querySelector('#kogda').value,
                 document.querySelector('#kuda').value,
-                document.querySelector('#nomer').value
+                document.querySelector('#nomer').value,
+                'DeliverModal'
             ]}
         console.log(body)
         axios({
@@ -87,22 +88,30 @@ export default class DeliverModal extends React.Component{
                             <h1 className="text">Что доставить </h1> <br />
                             <input type='text' className='modInput' value={this.props.name}  id='item' /><br />
                             <h1 className="text">Дата доставки</h1> <br />
-                            <div>
+                            {/* <div>
                                 { this.state.isCalendar && <Calendar 
                             className='calendar'
                             onChange={this.onChange}
                             value={this.state.date}
                             />}
-                            
-                            <input type='text' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput'  id='kogda' placeholder={'12 ноября 2020, 15:15'} /><br />
-                            </div>
+                             */}
+                            {/* <input type='text' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput'  id='kogda' placeholder={'12 ноября 2020, 15:15'} /><br />
+                            </div> */}
+                            <select id='kogda' className='modInput' >
+                                <option value='30 ноября'>30 ноября</option>
+                                <option value='3 декабря'>3 декабря</option>
+                                <option value='7 декабря'>7 декабря</option>
+                                <option value='10 декабря'>10 декабря</option>
+                                <option value='14 декабря'>14 декабря</option>
+                                <option value='17 декабря'>17 декабря</option>
+                            </select>
                             <h1 className="text">Куда доставить</h1> <br />
                             <input type='text' className='modInput' placeholder='Адрес'  id='kuda'/><br />
                             <h1 className="text">Куда звонить</h1> <br />
                             <input type='text' className='modInput' placeholder='+7' id='nomer'/><br />
                         </form>
                         <div className='acceptBtn'>
-                            <DelOk date={this.state.valueDate} closedWindow={()=>this.setState({ isOpen: false})} />
+                            <DelOk date={this.state.valueDate} closedWindow={()=> this.send_data() } />
                         </div>
                     </div>
                 </div>}

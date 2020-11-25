@@ -96,14 +96,22 @@ export default class SelfDeliverModal extends React.Component{
                             <h1 className="text">Что будет забирать </h1> <br />
                             <input type='text' className='modInput' id='chto_budet_zaberat' value={this.props.name} /><br />
                             <h1 className="text">Дата самовывоза</h1> <br />
-                            <div>
+                            {/* <div>
                                 { this.state.isCalendar && <Calendar 
                             className='calendar'
                             onChange={this.onChange}
                             value={this.state.date}
-                            />}
-                            <input type='text' id='samov' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput' placeholder={'12 ноября 2020, 15:15'} /><br />
-                            </div>
+                            />} */}
+                            {/* <input type='text' id='samov' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput' placeholder={'12 ноября 2020, 15:15'} /><br /> */}
+                            {/* </div> */}
+                            <select id='samov' className='modInput' >
+                                <option value='1 декабря'>1 декабря</option>
+                                <option value='4 декабря'>4 декабря </option>
+                                <option value='8 декабря'>8 декабря</option>
+                                <option value='11 декабря'>11 декабря</option>
+                                <option value='15 декабря'>15 декабря</option>
+                                <option value='18 декабря'>18 декабря</option>
+                            </select>
                         </form>
                         <div className='acceptBtn'>
                         <SelfDelOk date={this.state.valueDate} closedWindow={() => this.send_data()} />
