@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import './Modal.css'
 import DelOk from "./DelOk";
 import Calendar from 'react-calendar';
+import axios from "axios";
 
 
 
@@ -26,6 +27,34 @@ export default class DeliverModal extends React.Component{
     };
 
     // onChange = date => 
+
+
+
+    send_data() {
+        let body = {data: [
+                document.querySelector('#komu').value,
+                document.querySelector('#item').value,
+                document.querySelector('#kogda').value,
+                document.querySelector('#kuda').value,
+                document.querySelector('#nomer').value
+            ]}
+        console.log(body)
+        axios({
+            method: 'post',
+            url: 'http://194.242.121.124:4000/send_feedback_for_save_data',
+            data: body
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.setState({isOpen: false})
+    }
+
+
+
 
 
     onChange = (date) => {
@@ -54,23 +83,15 @@ export default class DeliverModal extends React.Component{
                         <h1 className='modHead' >Доставка</h1>
                         <form className='DeliverForm'>
                           <h1 className="text">Кому доставить </h1> <br />
-                            <input type='text' className='modInput' placeholder='ФИО' /><br />
+                            <input type='text'  id='komu' className='modInput' placeholder='ФИО' /><br />
                             <h1 className="text">Что доставить </h1> <br />
-                            <input type='text' className='modInput' value={this.props.name} /><br />
+                            <input type='text' className='modInput' value={this.props.name}  id='item' /><br />
                             <h1 className="text">Дата доставки</h1> <br />
-                            <div>
-                                { this.state.isCalendar && <Calendar 
-                            className='calendar'
-                            onChange={this.onChange}
-                            value={this.state.date}
-                            />}
-                            
-                            <input type='text' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput' placeholder={'12 ноября 2020, 15:15'} /><br />
-                            </div>
+                            <input type='text'  value={this.state.valueDate} className='modInput'  id='kogda' placeholder={'12 ноября 2020, 15:15'} /><br />
                             <h1 className="text">Куда доставить</h1> <br />
-                            <input type='text' className='modInput' placeholder='Адрес' /><br />
+                            <input type='text' className='modInput' placeholder='Адрес'  id='kuda'/><br />
                             <h1 className="text">Куда звонить</h1> <br />
-                            <input type='text' className='modInput' placeholder='+7'/><br />
+                            <input type='text' className='modInput' placeholder='+7' id='nomer'/><br />
                         </form>
                         <div className='acceptBtn'>
                             <DelOk date={this.state.valueDate} closedWindow={()=>this.setState({ isOpen: false})} />

@@ -92,6 +92,9 @@ let Content_ = <p/>;
     Content_ = <div>
       <div className='content' >
           <img src={BF} className="BF"  alt={'Black Friday'}/>
+        <div style={{textAlign: 'center'}}>
+          <h1 style={{color: '#00A460', fontSize: '30px'}}>{group}</h1>
+        </div>
           <img src={crateClosed} className='box' alt='crate'/>
           {/* <input {...inputProps} style={input_styles.input} placeholder='Введите код' /> */}
           <div className='div_for_btn' >
@@ -103,9 +106,6 @@ let Content_ = <p/>;
     Content_ =
         <div>
           <div className='content' >
-            <div style={{textAlign: 'center'}}>
-              <h1 style={{color: '#00A460', fontSize: '30px'}}>{group}</h1>
-            </div>
             <p className='itemName'> Ты выиграл {name}!</p>
             <img src={crateOpened} className='box' alt='crate'/>
             <div className='div_for_btn deliveryBtn' >
