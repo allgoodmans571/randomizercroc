@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import SelfDelOk from './SelfDelOk'
 import './Modal.css'
 import Calendar from 'react-calendar';
+import axios from 'axios'
 
 
 export default class SelfDeliverModal extends React.Component{
@@ -36,6 +37,26 @@ export default class SelfDeliverModal extends React.Component{
     }
 
 
+    send_data() {
+        let body = {data: [
+                 document.querySelector('#fio_inp').value, 
+                 document.querySelector('#chto_budet_zaberat').value, 
+                 document.querySelector('#samov').value]}
+
+                    axios({
+                        method: 'post',
+                        url: 'http://194.242.121.124:4000/send_feedback_for_save_data',
+                        data: body
+                    })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+        // this.setState({isOpen: false})
+    }
+
     // onChange = date => 
 
 
@@ -60,9 +81,9 @@ export default class SelfDeliverModal extends React.Component{
                         <form className='SelfDeliverForm'>
                           <h1 className="text">Кто будет забирать </h1> <br />
                             {/* eslint-disable-next-line no-restricted-globals */}
-                            <input type='text' className='modInput' placeholder='ФИО' value={this.state.name} onChange={this.setState({name})} /><br />
+                            <input type='text' className='modInput' placeholder='ФИО' id='fio_inp' /><br />
                             <h1 className="text">Что будет забирать </h1> <br />
-                            <input type='text' className='modInput' value={this.props.name} /><br />
+                            <input type='text' className='modInput' id='chto_budet_zaberat' value={this.props.name} /><br />
                             <h1 className="text">Дата самовывоза</h1> <br />
                             <div>
                                 { this.state.isCalendar && <Calendar 
@@ -70,11 +91,11 @@ export default class SelfDeliverModal extends React.Component{
                             onChange={this.onChange}
                             value={this.state.date}
                             />}
-                            <input type='text' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput' placeholder={'12 ноября 2020, 15:15'} /><br />
+                            <input type='text' id='samov' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput' placeholder={'12 ноября 2020, 15:15'} /><br />
                             </div>
                         </form>
                         <div className='acceptBtn'>
-                        <SelfDelOk date={this.state.valueDate} closedWindow={()=> this.setState({isOpen: false})} />
+                        <SelfDelOk date={this.state.valueDate} closedWindow={() => this.send_data()} />
                         </div>
                     </div>
                 </div>}
