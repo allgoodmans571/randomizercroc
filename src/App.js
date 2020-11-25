@@ -108,7 +108,7 @@ let Content_ = <p/>;
         <div>
           <div className='content' >
             <p className='itemName'> Ты выиграл {name}!</p>
-            <img src={require(`./images/items/Powerbank.png`)} className='itemImg' alt='111'/>
+            {/*<img src={require(`./images/items/Powerbank.png`)} className='itemImg' alt='111'/>*/}
             <img src={crateOpened} className='box' alt='crate'/>
             <div className='div_for_btn deliveryBtn' >
               <SelfDeliverModal  name={name} group={group} />
