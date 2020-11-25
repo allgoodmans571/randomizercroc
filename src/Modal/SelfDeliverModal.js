@@ -25,6 +25,10 @@ export default class SelfDeliverModal extends React.Component{
             Nov: '11',
             Dec: '12',
         },
+        inputData: {
+            name: '',
+
+        }
         
     };
 
@@ -47,11 +51,11 @@ export default class SelfDeliverModal extends React.Component{
             <Fragment>
                 <button className='modBtn' onClick={() => this.setState({isOpen: true})} > Самовывоз </button>
                 {this.state.isOpen && <div className='modal'>
-                    <div className='modal-body'>
+                    <div className='modal-body' onClick={}>
                         <h1 className='modHead' >Самовывоз</h1>
                         <form className='SelfDeliverForm'>
                           <h1 className="text">Кто будет забирать </h1> <br />
-                            <input type='text' className='modInput' placeholder='ФИО' /><br />
+                            <input type='text' className='modInput' placeholder='ФИО' value={this.state.inputData.name} /><br />
                             <h1 className="text">Что будет забирать </h1> <br />
                             <input type='text' className='modInput' value={this.props.name} /><br />
                             <h1 className="text">Дата самовывоза</h1> <br />
