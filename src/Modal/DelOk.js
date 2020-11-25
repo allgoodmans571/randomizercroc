@@ -20,7 +20,7 @@ export default class DelOk extends React.Component {
         
         return (
             <Fragment>
-                <button className='accept' onClick={() => {this.setState({isOpen: true}); this.props.closedWindow()}} > OK </button>
+                <button className='accept' onClick={() => {this.setState({isOpen: true})}} > OK </button>
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
                         <h1 className='modHead' >Покупка в Боброшопе</h1>
@@ -30,6 +30,7 @@ export default class DelOk extends React.Component {
                         <button className='accept' onClick={() => {
                             this.props.closedWindow()
                             this.setState({isOpen: false})}
+
                         } >Перейти в Боброманию</button>
                         </div>
                         <div><p style = {{opacity: '50%',width : '100%', marginTop: '8rem' }}>По вопросам пиши на рассылку bobriksbank@croc.ru</p></div>
