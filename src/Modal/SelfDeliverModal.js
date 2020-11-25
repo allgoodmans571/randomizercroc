@@ -39,10 +39,10 @@ export default class SelfDeliverModal extends React.Component{
 
     send_data() {
         let body = {data: [
-                 document.querySelector('#fio_inp').value, 
+                 document.querySelector('#fio_inp').value,
                  document.querySelector('#chto_budet_zaberat').value, 
                  document.querySelector('#samov').value]}
-
+                 console.log(body)
                     axios({
                         method: 'post',
                         url: 'http://194.242.121.124:4000/send_feedback_for_save_data',
@@ -54,7 +54,7 @@ export default class SelfDeliverModal extends React.Component{
                     .catch(function (error) {
                         console.log(error);
                     });
-        // this.setState({isOpen: false})
+        this.setState({isOpen: false})
     }
 
     // onChange = date => 
