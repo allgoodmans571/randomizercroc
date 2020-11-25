@@ -27,8 +27,6 @@ export default class SelfDeliverModal extends React.Component{
             Dec: '12',
         },
         name: '',
-
-        
     };
 
     handleSubmit(event) {
@@ -57,18 +55,31 @@ export default class SelfDeliverModal extends React.Component{
         this.setState({isOpen: false})
     }
 
+
+
     // onChange = date => 
 
 
     onChange = (date) => {
+        let mounts = {
+            "Jan":"января",
+            "Feb":"февраля",
+            "Mar":"марта",
+            "Apr":"апреля",
+            "May":"мая",
+            "Jun":"июня",
+            "Jul":"июля",
+            "Aug":"августа",
+            "Sep":"сентября",
+            "Oct":"октября",
+            "Nov":"ноября",
+            "Dec":"декабря",
+        }
         this.setState({ date })
         this.setState({ isCalendar: false})
-        this.setState({ valueDate: 
-            date.toString().split(' ')[3] + 
-            '.' + 
-            date.toString().split(' ')[2]+ 
-            '.' +
-            this.state.days[date.toString().split(' ')[0]]})
+        this.setState({ valueDate: `${date.toString().split(' ')[2]} ${mounts[date.toString().split(' ')[1]]} ${date.toString().split(' ')[3]} `})
+
+       console.log(date.toString().split(' '));     
     }
 
     render() {
