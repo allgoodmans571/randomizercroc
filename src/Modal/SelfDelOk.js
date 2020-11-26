@@ -28,6 +28,7 @@ export default class DelOk extends React.Component {
                         <h2 style = {{color: '#00A460',}}>Ты получил приз! <br /> Забрать можно по понедельникам <br />и четвергам с 14:00 до 18:00 в комнате 404 </h2>
                        <div className='acceptBtn'>
                         <button className='accept' onClick={() => {
+                            window.location.assign('https://bobromania.croc.ru/');
                             this.props.closedWindow()
                             this.setState({isOpen: false})}
                         } >Перейти в Боброманию</button>
