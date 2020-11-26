@@ -145,7 +145,7 @@ let Content_ = <p/>;
           <img src={crateClosed} className='box' alt='crate'/>
           {/* <input {...inputProps} style={input_styles.input} placeholder='Введите код' /> */}
           <div className='div_for_btn' >
-          <button className='btn' onClick={handleClick} > Получить приз </button>
+          <button className='btn' onClick={handleClick} > Узнать что внутри </button>
           </div> 
       </div>
     </div> 
