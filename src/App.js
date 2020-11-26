@@ -75,27 +75,27 @@ useEffect(() => {
 
 
 
-    if (itemPath === 'Powerbank') {
+    if (response.data.name.replace(/\s*$/,'') === 'Powerbank') {
       setItemPath(powerbank)
-    }else if (itemPath === 'Блокнот белый') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Блокнот белый') {
       setItemPath(notewhite)
-    }else if (itemPath === 'Додопицца промок') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Додопицца промок') {
       setItemPath(dodopizza)
-    }else if (itemPath === 'Попсокет белый') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Попсокет белый') {
       setItemPath(popwhite)
-    }else if (itemPath === 'Попсокет зеленый') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Попсокет зеленый') {
       setItemPath(popgray)
-    }else if (itemPath === 'Пуфик') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Пуфик') {
       setItemPath(pufik)
-    }else if (itemPath === 'Серый блокер для камер') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Серый блокер для камер') {
       setItemPath(blokergray)
-    }else if (itemPath === 'Смарт будильник') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Смарт будильник') {
       setItemPath(smartwatch)
-    }else if (itemPath === 'Спорт набор') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Спорт набор') {
       setItemPath(sportbundle)
-    }else if (itemPath === 'Столик-трансформер') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Столик-трансформер') {
       setItemPath(transtable)
-    }else if (itemPath === 'Черный блокер для камеры') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Черный блокер для камеры') {
       setItemPath(blokerblack)
     } else {
       console.log('error')
