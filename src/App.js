@@ -8,6 +8,19 @@ import DeliverModal from "./Modal/DeliverModal"
 import BF from './images/blackfriday.svg'
 import axios from 'axios'
 
+// ----------------------------------------------------------- Импортирование картинок>
+import powerbank from './images/items/Powerbank.png'
+import notewhite from './images/items/Блокнот белый.png'
+import dodopizza from './images/items/Додопицца промокод.png'
+import popwhite from './images/items/Попсокет белый.png'
+import popgray from './images/items/Попсокет зеленый.png'
+import pufik from './images/items/Пуфик.png'
+import blokergray from './images/items/Серый блокер для камеры.png'
+import smartwatch from './images/items/Смарт будильник.png'
+import sportbundle from './images/items/Спорт набор.png'
+import transtable from './images/items/Столик-трансформер.png'
+import blokerblack from './images/items/Черный блокер для камеры.png'
+// ----------------------------------------------------------- Импортирование картинок>
 
 const eventEmitter = require('events');
 window.ee = new eventEmitter();
@@ -35,7 +48,7 @@ function App() {
 
   const[name, setName] = useState()
   const[group, setGroup] = useState('')
-
+  const[itemPath, setItemPath] = useState()
 
   code = window.location.search.split('=') [1]
   console.log(code);
@@ -57,7 +70,39 @@ useEffect(() => {
     .then(function (response) {
       console.log(response);
       setName((response.data.name).replace(/\s*$/,''))
+      setItemPath((response.data.name).replace(/\s*$/,''))
       console.log(name)
+
+
+
+    if (itemPath === 'Powerbank') {
+      setItemPath(powerbank)
+    }else if (itemPath === 'Блокнот белый') {
+      setItemPath(notewhite)
+    }else if (itemPath === 'Додопицца промок') {
+      setItemPath(dodopizza)
+    }else if (itemPath === 'Попсокет белый') {
+      setItemPath(popwhite)
+    }else if (itemPath === 'Попсокет зеленый') {
+      setItemPath(popgray)
+    }else if (itemPath === 'Пуфик') {
+      setItemPath(pufik)
+    }else if (itemPath === 'Серый блокер для камер') {
+      setItemPath(blokergray)
+    }else if (itemPath === 'Смарт будильник') {
+      setItemPath(smartwatch)
+    }else if (itemPath === 'Спорт набор') {
+      setItemPath(sportbundle)
+    }else if (itemPath === 'Столик-трансформер') {
+      setItemPath(transtable)
+    }else if (itemPath === 'Черный блокер для камеры') {
+      setItemPath(blokerblack)
+    } else {
+      console.log('error')
+    }
+
+
+
       if (response.data.int === 1) {
         setGroup('Black Box Мерч')
         } else if (response.data.int === 2) {
@@ -68,7 +113,8 @@ useEffect(() => {
           setGroup('error')
           alert('Ошибка кода')
         }
-        console.log(group);
+
+
 
 
     })
@@ -108,7 +154,7 @@ let Content_ = <p/>;
         <div>
           <div className='content' >
             <p className='itemName'>{name}!</p>
-            {/*<img src={require(`./images/items/Powerbank.png`)} className='itemImg' alt='111'/>*/}
+            <img src={itemPath} className='itemImg' alt='111' style={{width: '100%'}}/>
             <img src={crateOpened} className='box' alt='crate'/>
             <div className='div_for_btn deliveryBtn' >
               <SelfDeliverModal  name={name} group={group} />
