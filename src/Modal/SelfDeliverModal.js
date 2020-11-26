@@ -4,6 +4,8 @@ import './Modal.css'
 import Calendar from 'react-calendar';
 import axios from 'axios'
 
+import cancel from '../images/cancel.svg' 
+
 
 export default class SelfDeliverModal extends React.Component{
 
@@ -88,6 +90,7 @@ export default class SelfDeliverModal extends React.Component{
                 <button className='modBtn' onClick={() => this.setState({isOpen: true})} > Самовывоз </button>
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
+                        <img src={cancel} className='modal_cancel' onClick={() => this.setState({isOpen: false})} />
                         <h1 className='modHead' >Самовывоз</h1>
                         <form className='SelfDeliverForm'>
                           <h1 className="text">Кто будет забирать </h1> <br />

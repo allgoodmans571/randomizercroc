@@ -1,6 +1,11 @@
 import React, {Fragment} from 'react'
 import './Modal.css'
 import DelOk from "./DelOk";
+
+
+import cancel from '../images/cancel.svg' 
+
+
 import Calendar from 'react-calendar';
 import axios from "axios";
 
@@ -79,8 +84,9 @@ export default class DeliverModal extends React.Component{
         return (
             <Fragment>
                 <button className='modBtn' onClick={() => this.setState({isOpen: true})} > Доставка </button>
-                {this.state.isOpen && <div className='modal' >
+                {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
+                    <img src={cancel} className='modal_cancel' onClick={() => this.setState({isOpen: false})} />
                         <h1 className='modHead' >Доставка</h1>
                         <form className='DeliverForm'>
                           <h1 className="text">Кому доставить </h1> <br />
