@@ -42,6 +42,7 @@ export default class SelfDeliverModal extends React.Component{
                  document.querySelector('#fio_inp').value,
                  document.querySelector('#chto_budet_zaberat').value, 
                  document.querySelector('#samov').value]}
+        console.log(body);
                  console.log(body)
                     axios({
                         method: 'post',
