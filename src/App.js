@@ -59,11 +59,11 @@ useEffect(() => {
       setName((response.data.name).replace(/\s*$/,''))
       console.log(name)
       if (response.data.int === 1) {
-        setGroup('Black Box "Мерч"')
+        setGroup('Black Box Мерч')
         } else if (response.data.int === 2) {
-        setGroup('Black Box "Wellbeing"')
+        setGroup('Black Box Wellbeing')
         } else if (response.data.int === 3){
-          setGroup('Black Box "Рабочее место"')
+          setGroup('Black Box Рабочее место')
         } else {
           setGroup('error')
           alert('Ошибка кода')
@@ -107,7 +107,7 @@ let Content_ = <p/>;
     Content_ =
         <div>
           <div className='content' >
-            <p className='itemName'> Ты выиграл {name}!</p>
+            <p className='itemName'>{name}!</p>
             {/*<img src={require(`./images/items/Powerbank.png`)} className='itemImg' alt='111'/>*/}
             <img src={crateOpened} className='box' alt='crate'/>
             <div className='div_for_btn deliveryBtn' >
