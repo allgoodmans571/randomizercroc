@@ -49,13 +49,18 @@ function App() {
   const[name, setName] = useState()
   const[group, setGroup] = useState('')
   const[itemPath, setItemPath] = useState()
+  const[Is, set_Is] = useState(true)
 
   code = window.location.search.split('=') [1]
   console.log(code);
 
 function handleClick(e){
-  e.preventDefault()
-  set_count(1)
+  if (Is) { 
+    e.preventDefault()
+    set_count(1)
+  } else {
+    alert('Не верный код')
+  }
 }
 
 
@@ -121,7 +126,8 @@ useEffect(() => {
       console.log(error);
     });
   } else {
-    alert('Поле не может быть пустым')
+    alert('Не верный код')
+    set_Is(false)
   }
 }, [null]); //null не дает useEffect обновить отрисовку
 
