@@ -24,7 +24,7 @@ export default class DelOk extends React.Component {
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
                         <h1 className='modHead' >Покупка в Боброшопе</h1>
-                        <h2 style = {{marginTop:'9rem'}}>Привет!</h2>
+                        <h2 style = {{marginTop:'3rem'}}>Привет!</h2>
                         <h2 style = {{color: '#00A460'}}>Ты получил приз! <br /> Ожидай письмо о дате доставки. </h2>
                         <div className='acceptBtn'>
                         <button className='accept' onClick={() => {
