@@ -74,7 +74,6 @@ useEffect(() => {
       console.log(name)
 
 
-
     if (response.data.name.replace(/\s*$/,'') === 'Powerbank') {
       setItemPath(powerbank)
     }else if (response.data.name.replace(/\s*$/,'') === 'Блокнот белый') {
@@ -87,7 +86,7 @@ useEffect(() => {
       setItemPath(popgray)
     }else if (response.data.name.replace(/\s*$/,'') === 'Пуфик') {
       setItemPath(pufik)
-    }else if (response.data.name.replace(/\s*$/,'') === 'Серый блокер для камер') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Серый блокер для камеры') {
       setItemPath(blokergray)
     }else if (response.data.name.replace(/\s*$/,'') === 'Смарт будильник') {
       setItemPath(smartwatch)
@@ -154,8 +153,8 @@ let Content_ = <p/>;
         <div>
           <div className='content' >
             <p className='itemName'>{name}!</p>
-            <img src={itemPath} className='itemImg' alt='111' style={{width: '100%'}}/>
-            <img src={crateOpened} className='box' alt='crate'/>
+            <img src={itemPath} className='itemImg' alt='image' style={{width: '70%', marginBottom: '-90px', marginLeft: '-20px'}}/>
+            <img src={crateOpened} className='box' alt='crate' style={{zIndex: -1}} />
             <div className='div_for_btn deliveryBtn' >
               <SelfDeliverModal  name={name} group={group} />
               <DeliverModal  name={name} group={group} />
