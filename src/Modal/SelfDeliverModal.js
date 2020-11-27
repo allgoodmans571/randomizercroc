@@ -36,29 +36,30 @@ export default class SelfDeliverModal extends React.Component{
         event.preventDefault();
     }
 
+send_data() {
+    let body = {
+        data: {
+            "fio": document.querySelector('#fio_inp').value,
+            "item": document.querySelector('#chto_budet_zaberat').value,
+            "date": document.querySelector('#samov').value,
+            "type": "Самовызов",
 
-    send_data() {
-        let body = {data: [
-                 {"fio":document.querySelector('#fio_inp').value},
-                 {"item":document.querySelector('#chto_budet_zaberat').value}, 
-                 {"date":document.querySelector('#samov').value},
-                 {"type":"Самовызов"},
-
-        ]}
-        console.log(body);
-                 console.log(body)
-                    axios({
-                        method: 'post',
-                        url: 'http://194.242.121.124:4000/send_feedback_for_save_data',
-                        data: body
-                    })
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+        }
     }
+    console.log(body);
+    console.log(body)
+    axios({
+            method: 'post',
+            url: 'http://194.242.121.124:4000/send_feedback_for_save_data',
+            data: body
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 
 
 

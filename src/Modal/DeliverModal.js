@@ -14,7 +14,6 @@ import axios from "axios";
 
 export default class DeliverModal extends React.Component{
         
-    
     state = {
         date: new Date(),
         isOpen: false,
@@ -22,11 +21,11 @@ export default class DeliverModal extends React.Component{
         valueDate: '',
         days: {
             Sun: 'Воскресение',
-            Mon: 'Понедельник', 
-            Tue: 'Вторник', 
-            Wed: 'Среда', 
-            Thu: 'Четверг', 
-            Fri: 'Пятница', 
+            Mon: 'Понедельник',
+            Tue: 'Вторник',
+            Wed: 'Среда',
+            Thu: 'Четверг',
+            Fri: 'Пятница',
             Sat: 'Субота'
         }
     };
@@ -34,50 +33,47 @@ export default class DeliverModal extends React.Component{
     // onChange = date => 
 
 
-
-    send_data() {
-        let body = {data: [
-                {"recipient":document.querySelector('#komu').value},
-                {"item":document.querySelector('#item').value},
-                {"date":document.querySelector('#kogda').value},
-                {"location":document.querySelector('#kuda').value},
-                {"phone": document.querySelector('#nomer').value},
-                {"type": "Доставка"}
-            ]}
-        console.log(body)
-        axios({
+send_data() {
+    let body = {data: {
+        "recipient": document.querySelector('#komu').value,
+        "item": document.querySelector('#item').value,
+        "date": document.querySelector('#kogda').value,
+        "location": document.querySelector('#kuda').value,
+        "phone": document.querySelector('#nomer').value,
+        "type": "Доставка"
+    }}
+    console.log(body)
+    axios({
             method: 'post',
             url: 'http://194.242.121.124:4000/send_feedback_for_save_data',
             data: body
         })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 
 
 
 
-
-    onChange = (date) => {
-        this.setState({ date })
-        this.setState({ isCalendar: false})
-        this.setState({ valueDate: 
-            date.toString().split(' ')[3] + 
-            ' | ' + 
-            date.toString().split(' ')[2]+ 
+onChange = (date) => {
+    this.setState({
+        date
+    })
+    this.setState({
+        isCalendar: false
+    })
+    this.setState({
+        valueDate: date.toString().split(' ')[3] +
             ' | ' +
-            this.state.days[date.toString().split(' ')[0]]})
-    }
-
-
-    // focusTextInput() {
-    //     console.log(1);
-    //     this.setState({isCalendar: true})
-    // }
+            date.toString().split(' ')[2] +
+            ' | ' +
+            this.state.days[date.toString().split(' ')[0]]
+    })
+}
 
     render() {
         
@@ -94,15 +90,6 @@ export default class DeliverModal extends React.Component{
                             <h1 className="text">Что доставить </h1> <br />
                             <input type='text' className='modInput' value={this.props.name}  id='item' /><br />
                             <h1 className="text">Дата доставки</h1> <br />
-                            {/* <div>
-                                { this.state.isCalendar && <Calendar 
-                            className='calendar'
-                            onChange={this.onChange}
-                            value={this.state.date}
-                            />}
-                             */}
-                            {/* <input type='text' onClick={()=>this.setState({ isCalendar: true})} value={this.state.valueDate} className='modInput'  id='kogda' placeholder={'12 ноября 2020, 15:15'} /><br />
-                            </div> */}
                             <select id='kogda' className='modInput' >
                                 <option value='30 ноября'>30 ноября</option>
                                 <option value='3 декабря'>3 декабря</option>
