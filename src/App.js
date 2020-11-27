@@ -51,6 +51,8 @@ function App() {
   const[itemPath, setItemPath] = useState()
   const[Is, set_Is] = useState(true)
 
+  const[Is_dodo, set_Is_dodo] = useState(false)
+
   code = window.location.search.split('=') [1]
   console.log(code);
 
@@ -85,6 +87,7 @@ useEffect(() => {
     }else if (response.data.name.replace(/\s*$/,'') === 'Блокнот белый') {
       setItemPath(notewhite)
     }else if (response.data.name.replace(/\s*$/,'') === 'Додопицца промокод') {
+      set_Is_dodo(true)
       setItemPath(dodopizza)
     }else if (response.data.name.replace(/\s*$/,'') === 'Попсокет белый') {
       setItemPath(popwhite)
@@ -163,8 +166,8 @@ let Content_ = <p/>;
             <img src={itemPath} className='itemImg' alt='image' style={{width: '70%', marginBottom: '-90px', marginLeft: '-20px'}}/>
             <img src={crateOpened} className='box' alt='crate' style={{zIndex: -1}} />
             <div className='div_for_btn deliveryBtn' >
-              <SelfDeliverModal  name={name} group={group} />
-              <DeliverModal  name={name} group={group} />
+              <SelfDeliverModal  name={name} Is_dodo={Is_dodo} group={group} />
+              {!Is_dodo && <DeliverModal  name={name} group={group} />}
             </div>
 
           </div>
