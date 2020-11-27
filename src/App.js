@@ -78,12 +78,13 @@ useEffect(() => {
       setItemPath((response.data.name).replace(/\s*$/,''))
       console.log(name)
 
-
+      console.log(response.data.name.replace(/\s*$/,'') );
+      
     if (response.data.name.replace(/\s*$/,'') === 'Powerbank') {
       setItemPath(powerbank)
     }else if (response.data.name.replace(/\s*$/,'') === 'Блокнот белый') {
       setItemPath(notewhite)
-    }else if (response.data.name.replace(/\s*$/,'') === 'Додопицца промок') {
+    }else if (response.data.name.replace(/\s*$/,'') === 'Додопицца промокод') {
       setItemPath(dodopizza)
     }else if (response.data.name.replace(/\s*$/,'') === 'Попсокет белый') {
       setItemPath(popwhite)
