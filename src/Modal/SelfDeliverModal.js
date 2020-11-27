@@ -39,9 +39,12 @@ export default class SelfDeliverModal extends React.Component{
 
     send_data() {
         let body = {data: [
-                 document.querySelector('#fio_inp').value,
-                 document.querySelector('#chto_budet_zaberat').value, 
-                 document.querySelector('#samov').value]}
+                 {"fio":document.querySelector('#fio_inp').value},
+                 {"item":document.querySelector('#chto_budet_zaberat').value}, 
+                 {"date":document.querySelector('#samov').value},
+                 {"type":"Самовызов"},
+
+        ]}
         console.log(body);
                  console.log(body)
                     axios({
@@ -55,7 +58,6 @@ export default class SelfDeliverModal extends React.Component{
                     .catch(function (error) {
                         console.log(error);
                     });
-        this.setState({isOpen: false})
     }
 
 
@@ -118,7 +120,7 @@ export default class SelfDeliverModal extends React.Component{
                             </select>
                         </form>
                         <div className='acceptBtn'>
-                        <SelfDelOk date={this.state.valueDate} closedWindow={() => this.send_data()} />
+                        <SelfDelOk date={this.state.valueDate} send_data={() => this.send_data()} closedWindow={() => this.send_data()} />
                         </div>
                     </div>
                 </div>}

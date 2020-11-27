@@ -37,12 +37,12 @@ export default class DeliverModal extends React.Component{
 
     send_data() {
         let body = {data: [
-                document.querySelector('#komu').value,
-                document.querySelector('#item').value,
-                document.querySelector('#kogda').value,
-                document.querySelector('#kuda').value,
-                document.querySelector('#nomer').value,
-                'DeliverModal'
+                {"recipient":document.querySelector('#komu').value},
+                {"item":document.querySelector('#item').value},
+                {"date":document.querySelector('#kogda').value},
+                {"location":document.querySelector('#kuda').value},
+                {"phone": document.querySelector('#nomer').value},
+                {"type": "Доставка"}
             ]}
         console.log(body)
         axios({
@@ -56,7 +56,6 @@ export default class DeliverModal extends React.Component{
             .catch(function (error) {
                 console.log(error);
             });
-        this.setState({isOpen: false})
     }
 
 
@@ -73,6 +72,7 @@ export default class DeliverModal extends React.Component{
             ' | ' +
             this.state.days[date.toString().split(' ')[0]]})
     }
+
 
     // focusTextInput() {
     //     console.log(1);
@@ -117,7 +117,7 @@ export default class DeliverModal extends React.Component{
                             <input type='text' className='modInput' placeholder='+7' id='nomer'/><br />
                         </form>
                         <div className='acceptBtn'>
-                            <DelOk date={this.state.valueDate} closedWindow={()=> this.send_data() } />
+                            <DelOk date={this.state.valueDate} send_data={() => this.send_data()} closedWindow={()=> this.setState({isOpen: false}) } />
                         </div>
                     </div>
                 </div>}

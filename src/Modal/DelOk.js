@@ -20,7 +20,7 @@ export default class DelOk extends React.Component {
         
         return (
             <Fragment>
-                <button className='accept' onClick={() => {this.setState({isOpen: true})}} > OK </button>
+                <button className='accept' onClick={() => {this.props.send_data(); this.setState({isOpen: true})}} > OK </button>
                 {this.state.isOpen && <div className='modal'>
                     <div className='modal-body'>
                         <h1 className='modHead' >Покупка в Боброшопе</h1>
