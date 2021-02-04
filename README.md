@@ -70,3 +70,5 @@ Back-end - серверная часть
 - node
 - express
 - mysql
+
+- [Скриншоты](https://drive.google.com/drive/folders/1XbRbSxGg-UwoNhumBtE7ihz2p1EvEcvW?usp=sharing)
